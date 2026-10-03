@@ -102,6 +102,8 @@ export function page({ path, title, description, body }) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<meta name="darkreader-lock">
 <title>${fullTitle}</title>
 <meta name="description" content="${description}">
 <link rel="icon" href="${asset('favicon.png')}">
