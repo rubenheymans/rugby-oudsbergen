@@ -1,0 +1,15 @@
+{
+  "name": "rugby-oudsbergen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "npx serve dist -l 4321"
+  },
+  "devDependencies": {
+    "@google/genai": "^2.27.0",
+    "sharp": "^0.35.5",
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

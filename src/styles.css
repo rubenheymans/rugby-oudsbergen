@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@source "./";
+
+@theme {
+  --color-navy: #00237a;
+  --color-navy-deep: #00134f;
+  --color-lime: #2ef01f;
+  --color-lime-soft: #c9fbc4;
+  --color-chalk: #f3f6f0;
+  --color-fur: #5f6e96;
+  --color-grass: #1e6b3a;
+  --font-display: "Bowlby One", "Arial Black", sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-chalk text-navy-deep font-body antialiased; }
+  h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; @apply font-display font-normal leading-[1.05] tracking-[-0.01em]; }
+  :focus-visible { outline: 3px solid var(--color-lime); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+@layer components {
+  /* The pitch's dashed 10m line: the only divider used on the site */
+  .tryline { height: 0; border-top: 3px dashed var(--color-lime); }
+  .tryline-navy { height: 0; border-top: 3px dashed color-mix(in oklab, var(--color-navy) 30%, transparent); }
+
+  .prose-club { @apply max-w-[68ch] text-lg leading-relaxed; }
+  .prose-club p { @apply mb-5; }
+  .prose-club h2 { @apply mt-12 mb-4 text-2xl text-navy; }
+  .prose-club a { @apply font-bold text-navy underline decoration-lime decoration-[3px] underline-offset-4; }
+  .prose-club ul { @apply mb-5 list-disc pl-6 space-y-2; }
+
+  /* Stamp card slot */
+  .slot { @apply grid aspect-square place-items-center rounded-full border-[3px] border-dashed border-navy/35 text-navy/50 font-display text-2xl; }
+  .slot.stamped { @apply border-solid border-navy bg-lime text-navy-deep; transform: rotate(-8deg); }
+
+  .site-nav details[open] > summary .chev { transform: rotate(180deg); }
+  .site-nav summary { list-style: none; cursor: pointer; }
+  .site-nav summary::-webkit-details-marker { display: none; }
+}
+
+@utility btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border-radius: 9999px; padding: .75rem 1.5rem; font-weight: 700; font-size: 1rem;
+  transition: transform .15s;
+  &:hover { transform: translateY(-2px); }
+}
+@utility btn-lime { @apply btn bg-lime text-navy-deep shadow-[0_4px_0_var(--color-navy-deep)]; }
+@utility btn-ghost { @apply btn border-2 border-current; }
+
+@keyframes stamp-in {
+  0% { transform: scale(1.6) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(.92) rotate(-6deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-8deg); }
+}
+.stamp-anim { animation: stamp-in .5s cubic-bezier(.3,1.4,.5,1) .6s both; }
