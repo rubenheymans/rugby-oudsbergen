@@ -34,7 +34,7 @@ function header(current) {
   const desktopLink = 'whitespace-nowrap px-2.5 py-2 rounded-full font-bold text-[15px] hover:text-lime';
   const clubActive = clubLinks.some(([h]) => h === current);
   return `
-<header class="site-nav relative z-30 bg-navy-deep text-white">
+<header class="site-nav sticky top-0 z-30 bg-navy-deep text-white">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 h-24">
     <a href="${url()}" class="flex items-center gap-3" aria-label="Rugbyclub Oudsbergen, naar de startpagina">
       <img src="${asset('logo.webp')}" alt="" width="96" height="99" class="h-[76px] w-auto">
@@ -52,7 +52,7 @@ function header(current) {
     </nav>
     <details class="xl:hidden" data-dropdown>
       <summary class="flex items-center gap-2 rounded-full border-2 border-white/40 px-4 py-2 font-bold">Menu ${chevron}</summary>
-      <div class="absolute inset-x-0 top-full bg-navy-deep px-4 pb-8 pt-10 shadow-xl">
+      <div class="absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto bg-navy-deep px-4 pb-8 pt-6 shadow-xl">
         <nav aria-label="Mobiel menu" class="grid gap-1 text-lg">
           ${mainLinks.map((l) => navLink(l, current, 'py-2 font-bold')).join('')}
           <p class="mt-4 text-sm text-white/60">Club</p>
