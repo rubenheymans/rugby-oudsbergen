@@ -270,7 +270,7 @@ const verhuur = {
   body: `${pageHead('Kantine huren', 'Op zoek naar een zaal voor een feest of vergadering? Onze kantine is te huur.')}
   ${wrap(`
   <div class="grid grid-cols-1 items-start gap-12 py-16 lg:grid-cols-2">
-    <img src="${asset('gen/kantine.webp')}" alt="Sfeerbeeld van een clubkantine met lange tafels en zicht op het verlichte veld" loading="lazy" class="rounded-[2rem] border-[3px] border-navy w-full">
+    <img src="${asset('photos/clubfeest_03.webp')}" alt="De kantine van de club, vol leden tijdens het clubfeest" loading="lazy" class="rounded-[2rem] border-[3px] border-navy w-full">
     <div class="space-y-8">
       <div class="rounded-3xl bg-white p-8 border-2 border-navy/10">
         <h2 class="text-2xl">Reserveren</h2>
